@@ -1,0 +1,46 @@
+﻿<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+			var app = angular.module('meuApp', []);
+			app.controller('meuController', function ($scope) {
+				$scope.hoje = new Date();
+				$scope.estudante = {
+					nome: "João Carlos",
+					disciplinas:[
+						{nome:'Cálculo Integral Diferencial', ch: 40},
+						{nome:'Paradigmas de Programação ', ch: 40},
+						{nome:'Fundamentos de Programação', ch: 80},
+						{nome:'Metodologia Científica', ch: 80},
+						{nome:'Programação Orientada à Objetos', ch: 80},
+						{nome:'Programação para Internet', ch: 80}
+					]
+				};
+			});
+		</script>
+	</head>
+	<body>
+		<h2>AngularJS Filter Exemplos</h2>
+		<div ng-app="meuApp" ng-controller="meuController">
+			<table border="0">
+				<tr><td>Nome:</td><td><input type="text" ng-model="estudante.nome"></td></tr>
+				<tr><td>Filtro disciplinas:</td><td><input type="text" ng-model="filtroDiscip"></td></tr>
+			</table>
+			<br/>
+			<p><h2>Dados da Matrícula</h2></p>
+			<p>Nome Maiúsculo: {{estudante.nome | uppercase}}</p>
+			<p>Nome Minúsculo: {{estudante.nome | lowercase}}</p>
+			<p>Data Matrícula: {{hoje | date : "dd/MM/yyyy HH:mm:ss" }}</p>
+			<p>Disciplinas:</p>
+			<p>
+				<ul>
+					<li ng-repeat="disciplina in estudante.disciplinas | 
+					filter: filtroDiscip | orderBy: disciplina.nome ">
+						{{ disciplina.nome + ', carga horária:' + disciplina.ch }}
+					</li>
+				</ul>
+			</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="controller.js"></script>	
+	</head>
+	<body ng-app="meuApp">
+		<div ng-controller="meuController">
+			<p>Nro 1: <input type="number" ng-model="numero_1"></p>
+			<p>Nro 2: <input type="number" ng-model="numero_2"></p>
+			<p>
+				<button type="button" ng-click="som()">Somar</button>
+				<button type="button" ng-click="sub()">Subtrair</button>
+				<button type="button" ng-click="mul()">Multiplicar</button>
+				<button type="button" ng-click="div()">Dividir</button>
+			</p>			
+			<p>Resultado: {{ resultado }}</p>
+		</div>
+	</body>
+</html>
+
+

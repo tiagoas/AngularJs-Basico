@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var app = angular.module('meuApp', []);
+app.controller('meuCtrl', function($scope) {
+    $scope.nomes = [{nome:'Janio', cidade:'Uberlandia'},
+{nome:'Hellen',cidade:'Uberaba'}, {nome:'Carla',cidade:'Araguari'}]
+});
+</script>
+<body>
+<div ng-app="meuApp" ng-controller="meuCtrl">
+<table>
+  <tr ng-repeat="x in nomes">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ x.nome }}</td>
+    <td>{{ x.cidade }}</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

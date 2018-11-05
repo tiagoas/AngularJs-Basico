@@ -1,0 +1,28 @@
+﻿<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+		<title>Div</title>
+		<SCRIPT>
+			function capturaTecla(){
+				if( event.keyCode ==  13){
+					verifica();
+				}
+			}	
+			function verifica(){
+				var nome = document.getElementById("nome").value;
+				document.getElementById("resultado").innerHTML = 
+				"Oi "+ nome;
+			}			
+		</SCRIPT>
+	</head>
+	<body bgcolor="#d4d4d4" onkeydown="capturaTecla()">
+		<p>
+			Qual seu nome: 
+			<input id="nome" type="text">
+			<button type="button" onclick="verifica();">OK</button>
+			<br>Aperte OK ou tecle &lt;ENTER&gt;
+		</p>
+		<p id="resultado"></p>
+
+	</body>
+</html>

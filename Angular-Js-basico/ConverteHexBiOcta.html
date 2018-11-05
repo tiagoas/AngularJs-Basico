@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>		
+		<script>
+			var app = angular.module('meuApp', []);
+			app.service('meuServ', function() {
+				this.convHexa = function (x) {
+					return x.toString(16);
+				}
+				this.convBin = function (x) {
+					return x.toString(2);
+				}
+				this.convOct = function (x) {
+					return x.toString(8);
+				}
+			});
+			app.controller('meuCtrl', function($scope, meuServ) {
+			  $scope.numero = 0;
+			  $scope.hexa = 0; 
+			  $scope.bina = 0; 
+			  $scope.octa = 0; 
+			  $scope.converter = function(){
+				 $scope.hexa = meuServ.convHexa($scope.numero);
+				 $scope.bina = meuServ.convBin($scope.numero);
+				 $scope.octa = meuServ.convOct($scope.numero);
+			  }
+			});
+		</script>
+	</head>
+	<body>
+         <div ng-app="meuApp" ng-controller="meuCtrl">
+			<p>Numero: <input type="number" ng-model="numero" 
+			ng-change="converter()"></p>
+			<h3>Em hexadecimal: {{hexa | uppercase}}</h3>
+			<h3>Em binário:  {{bina | uppercase}}</h3>
+			<h3>Em Octal:  {{octa | uppercase}}</h3>
+		</div>
+
+
+     </body>
+</html>

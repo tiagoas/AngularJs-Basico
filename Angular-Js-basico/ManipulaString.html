@@ -1,0 +1,28 @@
+﻿<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+		<script>
+			function Teste(){
+				var texto = document.getElementById("texto").value;
+				var nroLetras = texto.length;
+				var letra = texto.charAt(texto.length - 1);
+				var pedaco = texto.substring(0, 5);
+				//var textoMai = texto.toUpperCase();
+				var textoMin = texto.toLowerCase();
+				texto = texto.toUpperCase();
+				//texto = texto.replace("A","XXX");
+				var vet = texto.split(" ");
+				for(i = 0; i < vet.length; i++){
+					alert(vet[i]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Teste Funções String</h2>
+		<p>Digite um texto: <input id="texto" type="text"></p>
+		<button type="button" onclick="Teste();">Manipular</button>
+		<p id="resp"></p>
+	</body>
+
+</html>

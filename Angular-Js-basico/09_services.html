@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<div ng-app="meuApp" ng-controller="meuCtrl">
+<p>Numero: <input type="number" ng-model="numero" ng-change="converteHexa()"></p>
+<p>{{numero}} em hexadecimal é:</p>
+<h1>{{hexa | uppercase}}</h1>
+</div>
+
+<script>
+var app = angular.module('meuApp', []);
+app.service('hexaServ', function() {
+    this.func = function (x) {
+        return x.toString(16);
+    }
+});
+app.controller('meuCtrl', function($scope, hexaServ) {
+  $scope.numero = 0;
+  $scope.hexa = 0; //hexaServ.func($scope.numero);
+  $scope.converteHexa = function(){
+	 $scope.hexa = hexaServ.func($scope.numero);
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+	var app = angular.module('meuApp', []);
+	app.controller('meuCtrl', function($scope) {
+		$scope.selecionado = "";
+		$scope.nomes = [{nome:'Janio', cidade:'Uberlandia'},
+			{nome:'Hellen',cidade:'Uberaba'}, {nome:'Carla',cidade:'Araguari'}];
+		$scope.teste = function(){
+			$scope.selecionado = $scope.pSel.nome + " de " + $scope.pSel.cidade;
+		};
+	});
+</script>
+	</head>
+	<body>
+		<div ng-app="meuApp" ng-controller="meuCtrl">
+			<p>Selecione uma pessoa:
+				<select ng-model="pSel" ng-options="x.nome for x in nomes" ng-click="teste()" ng-change="teste()"></select>
+			</p>
+			<h3>Item selecionado: {{selecionado}}</h3>
+		</div>
+	</body>
+</html>

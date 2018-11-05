@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+	var app = angular.module('meuApp', []);
+	app.controller('meuCtrl', function($scope) {
+		$scope.selecionado = "";
+	});
+</script>
+	</head>
+	<body>
+		<div ng-app="meuApp" ng-controller="meuCtrl">
+			  <form novalidate>
+				<h4>Informe os dados abaixo: </h4>
+				Nome: <input type="text" ng-model="nome"><br>
+				Sexo: <input type="radio" ng-model="sexo" value="masculino">Masculino
+					  <input type="radio" ng-model="sexo" value="feminino">Feminino<br>
+				Nasceu em Uberlandia: <input type="checkbox" ng-model="moraUdi"><br>
+				Qual Cidade: 
+					<select ng-model="cidade">
+						<option value="">
+						<option value="Monte Carmelo">Monte Carmelo
+						<option value="Uberaba">Uberaba
+						<option value="Araguari">Araguari
+					</select>
+  			</form>
+			<p>
+				<b>Você informou: </b><br>
+				Seu nome: {{nome}}<br>
+				Sexo: {{sexo}}<br>
+				Nasceu em Uberlandia: {{moraUdi}}<br>
+				Cidade: {{cidade}}<br>
+			</p>
+		</div>
+	</body>
+</html>

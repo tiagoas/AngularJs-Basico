@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+			var app = angular.module('meuApp', []);
+			app.controller('meuCtrl', function($scope) {
+				$scope.nome = 'Nome';
+				$scope.email = 'nome@email.com';
+				$scope.url = 'http:\\www.nome.com';
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Validando Form</h2>
+		<form ng-app="meuApp" ng-controller="meuCtrl" name="meuForm" novalidate>
+			<p>Nome:
+				<input type="text" name="nome" ng-model="nome" required>
+				<span style="color:red" ng-show="meuForm.nome.$dirty && meuForm.nome.$invalid">
+					<span ng-show="meuForm.nome.$error.required">Nome é obrigatório</span>
+				</span>
+			</p>			
+			<p>Email:
+				<input type="email" name="email" ng-model="email" required>
+				<span style="color:red" ng-show="meuForm.email.$dirty && meuForm.email.$invalid">
+					<span ng-show="meuForm.email.$error.required">Email é obrigatório</span>
+					<span ng-show="meuForm.email.$error.email">Email inválido</span>
+				</span>
+			</p>
+			<p>Url:
+				<input type="url" name="url" ng-model="url" required>
+				<span style="color:red" ng-show="meuForm.url.$dirty && meuForm.url.$invalid">
+					<span ng-show="meuForm.url.$error.required">Url é obrigatório</span>
+					<span ng-show="meuForm.url.$error.url">Url inválido</span>
+				</span>
+			</p>			
+			<p>
+				<input type="submit"
+					ng-disabled="meuForm.nome.$dirty && meuForm.nome.$invalid ||
+					meuForm.email.$dirty && meuForm.email.$invalid ||
+					meuForm.url.$dirty && meuForm.url.$invalid">
+			</p>
+		</form>
+	</body>
+</html>

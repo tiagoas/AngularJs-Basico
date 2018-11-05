@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+			function calculaIdade(){
+				var dtStr = document.getElementById("data").value;
+				var vetDt = dtStr.split("/");
+				var dia =  vetDt[0];
+				var mes =  vetDt[1];
+				var ano =  vetDt[2];
+				var dataNasc = new Date(ano, mes, dia);
+				var dataAtual = new Date();
+				//calcula idade usando somente ano
+				var idade = dataAtual.getFullYear() - dataNasc.getFullYear();
+				document.getElementById("resultado").innerHTML = "Idade: " + idade;
+				// melhore esta solução calculando a idade real do usuário
+				// leve em consideração o mês e o dia de nascimento 
+			}	
+		</script>
+	</head>
+	<body>
+		<h2>Calcula Idade</h2>
+		<p>
+			Informe data nasc. dia/mes/ano: 
+			<input id="data" type="text" value='10/10/2000'>
+			<button type="button" onclick="calculaIdade();">Calcula</button>
+		</p>
+		<p id="resultado"></p>
+	</body>
+
+</html>

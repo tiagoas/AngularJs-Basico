@@ -1,0 +1,23 @@
+﻿<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>		
+	</head>
+	<body>
+		<h2>AngularJS Diretivas</h2>
+		<div ng-app="">
+			<p ng-init="clickConta=0">
+				<button ng-click="clickConta = clickConta + 1">Clique</button>
+				Total de cliques: {{ clickConta }}				
+			</p>
+			<p>
+				<input type="checkbox" ng-model="habDesabButton">Habilita/Disabilita Botão abaixo:<br>
+				<button ng-disabled="habDesabButton" onclick="alert('Oi')">___Botão___</button>
+			</p>
+			<p>
+				<input type="checkbox" ng-model="showHide">Mostra/Esconde Botão abaixo:<br>
+				<button ng-show="showHide" onclick="alert('Oi')">___Botão___</button>
+			</p>			
+		</div>
+	</body>
+</html>

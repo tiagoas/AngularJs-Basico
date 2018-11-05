@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script language="JavaScript" type="text/javascript">
+		  i = 0;
+		  function moverImagens() {
+			i = i + 5;
+			document.getElementById("imagemNome").style.top = i;
+			document.getElementById("imagemNome").style.left = i;
+			if (i > 700) {
+				i = -20;
+			}
+			window.setTimeout ("moverImagens()", 100);
+		  }
+		</script>
+	</head>
+
+	<body onLoad="moverImagens();">
+		<img 
+src="http://www.consultoriamovel.com.br/imagens/telefones-operadoras/oi.png" 
+id="imagemNome" style="position: absolute; top: 0px; left: 0px;" />
+	</body>
+</html>

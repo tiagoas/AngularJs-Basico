@@ -1,0 +1,59 @@
+﻿ <html>
+	<head>
+		<meta charset="utf-8">
+		<title>Move Div</title>
+		<script>
+			var posX = 0;
+			var posY = 0;
+			function capturaTecla(){
+				if(event.keyCode == 37){ //seta esquerda
+					posX = posX - 5;
+					document.getElementById("minhaDiv").style.left = posX;
+				}
+				else if(event.keyCode == 38){ //seta para cima
+					posY = posY - 5;
+					document.getElementById("minhaDiv").style.top = posY;
+				}
+				else if(event.keyCode == 39){ //seta direita
+					posX = posX + 5;
+					document.getElementById("minhaDiv").style.left = posX;
+				}
+				else if(event.keyCode == 40){ //seta para baixo
+					posY = posY + 5;
+					document.getElementById("minhaDiv").style.top = posY;
+				}
+				if( posX > 300 && posX < 800 
+				     && posY > 50 && posY < 550 ){
+					document.getElementById("resultado").innerHTML = "DENTRO";
+				} else {
+					document.getElementById("resultado").innerHTML = "FORA";
+				}
+			}					
+		</script>
+		<style>
+				#minhaDiv { 
+					width:  100px;
+					height: 100px;  
+					border: 5px solid black;
+					background: red;
+					visibility: visible; //
+				}
+				#minhaDivona { 
+					width:  500px;
+					height: 500px;  
+					border: 1px solid blue;
+					visibility: visible; //
+				}
+		</style>
+	</head>
+	<body onkeydown="capturaTecla()">
+		<div id='minhaDivona' style="position: absolute; top: 50px; left: 300px;">
+			<p id="resultado">FORA</p>
+		</div>
+		<div id='minhaDiv' style="position: absolute; top: 0px; left: 0px;"></div>
+		
+	</body>
+</html>
+
+
+
